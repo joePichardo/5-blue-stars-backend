@@ -13,7 +13,7 @@ import { UserModule } from "./user/user.module";
       username: process.env.DATABASE_USERNAME,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      entities: ['dist/**/*.entity.ts'],
+      entities: ['dist/**/*.entity{.ts,.js}'],
       synchronize: Boolean(process.env.DATABASE_SYNC),
     }),
     UserModule

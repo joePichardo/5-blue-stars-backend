@@ -24,7 +24,6 @@ export class UserService {
 
     // Delete the password field before returning the User
     delete savedUser.password;
-    console.log("savedUser", savedUser);
     return savedUser;
   }
 }
