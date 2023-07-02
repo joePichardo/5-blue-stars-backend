@@ -91,6 +91,9 @@ docker-compose up
 ## Troubleshoot
 If on MacOS, some test won't run if you have `psql` services already running on your system.
 
+### Test
+After running `docker-compose up --build -d` you need to switch the `.env` file variable `TEST_DATABASE_HOST=test-db` to `TEST_DATABASE_HOST=localhost` to run `npm run test` locally
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
