@@ -26,6 +26,7 @@ if (process.env.NODE_ENV === "test") {
     database: process.env.TEST_DATABASE_NAME,
     entities: ['dist/**/*.entity{.ts,.js}'],
     synchronize: Boolean(process.env.TEST_DATABASE_SYNC),
+    autoLoadEntities: true
   };
 }
 
