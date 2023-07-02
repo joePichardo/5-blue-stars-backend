@@ -27,5 +27,18 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=5bluestars
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+  test-db:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=test
+    restart: always
 volumes:
+  postgres_data:
   node_modules:
