@@ -63,6 +63,34 @@ $ npm run test:cov
 docker-compose up --build
 ```
 
+## Get IP Address of Docker container
+Find and copy container ID, look under `NAMES` column to find your container row
+```bash
+docker ps
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <containerNameOrID>
+```
+
+## Refresh node_modules container after adding package
+```bash
+# Stop Docker containers
+docker-compose down
+
+# Remove node_modules volume
+docker volume rm <volume_name>
+
+# Add new package to package.json
+# This step is usually done manually, not with a command.
+
+# Rebuild Docker image
+docker-compose build
+
+# Bring project up
+docker-compose up
+```
+
+## Troubleshoot
+If on MacOS, some test won't run if you have `psql` services already running on your system.
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
